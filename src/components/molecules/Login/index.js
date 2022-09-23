@@ -7,7 +7,7 @@ import axios from "axios";
 import { useState } from "react";
 
 const Login = () => {
-    let navigate = useNavigate()
+  let navigate = useNavigate()
     const instance = axios.create({
         baseUrl: 'https://localhost:3000'
     })

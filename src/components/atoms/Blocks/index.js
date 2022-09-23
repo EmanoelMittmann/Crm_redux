@@ -1,9 +1,12 @@
 import React from 'react'
+import { DinamicContainer } from './style'
 
-const index = () => {
+const Block = ({width, children}) => {
   return (
-    <div>index</div>
+    <DinamicContainer width={width}>
+        {children}
+    </DinamicContainer>
   )
 }
 
-export default index
+export default Block

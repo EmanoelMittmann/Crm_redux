@@ -1,19 +1,24 @@
 import styled from "styled-components";
 
 export const NavContainer = styled.div`
-    position: fixed;
-    width: 100%;
+    min-width: 100%;
     height: 3.5em;
     background-color: white;
     display: flex;
     flex-direction: row;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom:0;
+    z-index: 10;
     justify-content: flex-end;
-    box-shadow: 1px 0 5px whitesmoke;
+    box-shadow: 1px 0 5px gray ;
 
     .position_arrow{
         position: absolute;
         cursor: pointer;
-        transform: translate(-80rem, 80%);
+        transform: translate(-80rem, 50%);
     }
 `
 
@@ -40,7 +45,7 @@ export const NavContainerChildren = styled.div`
     }
 `
 
-export const ImgContainer = styled.div`
+export const ImgContainer = styled.img`
     width: 3em;
     height: 3em;
     margin-right: 2em;

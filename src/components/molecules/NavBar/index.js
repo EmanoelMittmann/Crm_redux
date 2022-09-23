@@ -1,10 +1,11 @@
 import { ImgContainer, NavContainer, NavContainerChildren } from "./style";
+import img from '../../../assets/Imgs/img1.png'
 
 const Navbar = ({ setIsOpen, isOpen }) => {
   return (
     <NavContainer>
       <NavContainerChildren>
-        <ImgContainer />
+        <ImgContainer src={img}/>
         <span className="material-symbols-outlined Payment">payments</span>
         <span className="material-symbols-outlined Notification">
           notifications

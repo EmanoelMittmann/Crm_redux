@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Element = styled.button`
     font-family: 'Roboto', sans-serif;
     width: 20em;
+    background-color: white;
     height: 3em;
     border: none;
     margin-bottom: 2px;

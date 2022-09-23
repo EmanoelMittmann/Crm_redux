@@ -1,10 +1,13 @@
 import styled from "styled-components";
 
 export const ContainerSideBar = styled.div`
-    position: absolute;
     width: 16.8em;
     height: 100%;
-    background-color: whitesmoke;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    box-shadow: 1px 0px 10px #E9E3CE;
+    z-index: 10;
 
     .FatherImg{
         display: flex;
