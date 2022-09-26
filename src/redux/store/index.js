@@ -1,5 +1,11 @@
-import { configureStore } from "@reduxjs/toolkit";
-
+import { configureStore } from '@reduxjs/toolkit'
+import { CountClient } from '../reducers/clientState'
+import { IsOpen } from '../reducers/ModalFuncionality'
+ 
 export default configureStore({
-    reducer: {},
+  reducer: {
+    Counter: CountClient,
+    Modal: IsOpen,
+    
+  }
 })

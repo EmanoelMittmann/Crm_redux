@@ -9,6 +9,7 @@ export const Template = styled.section`
 export const ContainerRow = styled.div`
   display: flex;
   justify-content: ${(props) => props.content};
+  align-content: ${props => props.align};
   margin-bottom: 1em;
 
   .status-1{

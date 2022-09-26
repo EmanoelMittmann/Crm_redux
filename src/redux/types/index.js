@@ -1,2 +1,0 @@
-export const SETOPENMODAL = " SET OPEN MODAL"
-export const SETCLOSEMODAL = "SET CLOSE MODAL"

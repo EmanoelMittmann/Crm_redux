@@ -9,23 +9,23 @@ import {
 import Status from "../../atoms/Status";
 import Navbar from "../../molecules/NavBar";
 import SideBar from "../../molecules/SideBar";
-import {
-  Template,
-  ContainerRow,
-  ContainerText,
-  ContainerIcon,
-  ContainerStatus,
-} from "./style";
+import { Template, ContainerRow, ContainerText, ContainerIcon } from "./style";
+import { LineChart, PieChart } from "react-chartkick";
+import "chartkick/chart.js";
+import { useDispatch, useSelector } from "react-redux";
+import { data } from "./data";
 
 const Dashboard = () => {
   const [isOpen, setIsOpen] = useState(false);
   const newDate = new Date();
-  const [numberCustomers, setNumberCustomers] = useState(14);
+
+  const Modal = useSelector((state) => state.Modal);
+  const CustomersActives = useSelector((state) => state.Counter);
 
   return (
     <>
       <Navbar setIsOpen={setIsOpen} isOpen={isOpen} />
-      {isOpen && <SideBar setIsOpen={setIsOpen} />}
+      {Modal && <SideBar />}
       <Template>
         <ContainerRow>
           <Block width="100%">
@@ -38,10 +38,13 @@ const Dashboard = () => {
             </SubContainer>
             <SubContainer>
               <SubContainerDate>
-                <span class="material-symbols-outlined">calendar_today</span>
+                <span className="material-symbols-outlined">
+                  calendar_today
+                </span>
                 {`Month: ${months[newDate.getMonth()]} in Date: ${newDate
                   .getDate()
-                  .toString()} `}
+                  .toString()} 
+                `}
               </SubContainerDate>
             </SubContainer>
           </Block>
@@ -53,8 +56,10 @@ const Dashboard = () => {
               <h4>Actives Customers</h4>
             </ContainerText>
             <ContainerIcon>
-              <span class="material-symbols-outlined">supervisor_account</span>
-              <h2>{numberCustomers}</h2>
+              <span className="material-symbols-outlined">
+                supervisor_account
+              </span>
+              <h2>{CustomersActives}</h2>
             </ContainerIcon>
           </DinamicBlocks>
           <DinamicBlocks width={"69%"} height={"15em"}>
@@ -100,14 +105,24 @@ const Dashboard = () => {
             </ContainerRow>
           </DinamicBlocks>
         </ContainerRow>
-
         <ContainerRow content="space-between">
-          <DinamicBlocks width={"69%"} height={"25em"}></DinamicBlocks>
-          <DinamicBlocks width={"29%"} height={"25em"}></DinamicBlocks>
+          <DinamicBlocks width={"69%"} height={"25em"} display="flex">
+            <LineChart download={{ background: "#fff" }}  data={data}/>
+          </DinamicBlocks>
+          <DinamicBlocks width={"29%"} height={"25em"} display="flex">
+            <PieChart
+              data={{
+                Clients: 44,
+                SalesPerson: 21,
+                Benefit: 92,
+                Productivity: 10,
+              }}
+            />
+          </DinamicBlocks>
         </ContainerRow>
 
         <ContainerRow>
-          <DinamicBlocks width={"100%"} height={"16em"}></DinamicBlocks>
+          <DinamicBlocks width={"100%"} height={"17em"}></DinamicBlocks>
         </ContainerRow>
       </Template>
     </>

@@ -11,8 +11,8 @@ function App() {
         <Routes>
           <Route path='/' element={<Login/>}/>
           <Route path='/home' element={<Dashboard/>}/>
-          <Route path='/Customers' element={<RegisterCustomersIndex/>}/>
-          <Route path='/Clients' element={<RegisterClientData/>}/>
+          <Route path='/customers' element={<RegisterCustomersIndex/>}/>
+          <Route path='/clients' element={<RegisterClientData/>}/>
         </Routes>
       </BrowserRouter>
     </>

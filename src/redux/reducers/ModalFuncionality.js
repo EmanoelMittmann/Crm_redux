@@ -1,27 +1,14 @@
-import { SETOPENMODAL, SETCLOSEMODAL } from "../types";
 
-const initialState = {
-    edit: false,
-    register: false
-}
 
-const modalFuncionality = (state = initialState, action) => {
-    const {type} = action;
+export const IsOpen = (state = false, action) => {
+    const {payload, type} = action;
 
-    switch (type){
-        case SETOPENMODAL:
-            state = {edit: true, register: false}
-        
-        return state;
-
-        case SETCLOSEMODAL:
-            state = {edit: false, register: true}
-        
-        return state;
-
+    switch(type){
+        case 'OPEN':    
+            return state = true
+        case 'CLOSE': 
+            return state = false
         default:
             return state;
     }
-} 
-
-export default modalFuncionality;
+}

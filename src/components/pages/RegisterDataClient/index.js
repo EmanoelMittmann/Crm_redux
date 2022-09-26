@@ -11,9 +11,9 @@ import {
   PrimaryText,
 } from "../RegisterCustomers/style";
 import { instance } from "../../../utils/instance";
+import { useSelector } from "react-redux";
 
 const RegisterDataClient = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const [data, setData] = useState({
     name: "",
     lastName: "",
@@ -32,22 +32,21 @@ const RegisterDataClient = () => {
   });
 
   const navigate = useNavigate();
+  const Modal = useSelector(state => state.Modal)
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    instance.post('/RegisterClient', data).then(navigate('/home')).catch(error => console.log(error.response.message))
+    instance.post('/RegisterClient', data)
+    .then(navigate('/home'))
+    .catch(error => console.error(error.response.message))
   };
 
-  const testeDb = () => {
-    instance.get('/Client').then(res => console.log(res.data))
-  }
-  testeDb()
  
 
   return (
     <>
-      <Navbar setIsOpen={setIsOpen} />
-      {isOpen && <SideBar setIsOpen={setIsOpen} />}
+      <Navbar/>
+      {Modal && <SideBar/>}
       <ContainerFather>
         <PrimaryText>Cadastro de Cliente</PrimaryText>
         <ContainerForm id="client" onSubmit={(e) => handleSubmit(e)}>

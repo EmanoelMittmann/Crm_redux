@@ -18,6 +18,8 @@ export const DinamicBlocks = styled.div`
     background-color: white;
     box-shadow: 1px 0px 10px white;
     border-radius: 3px;
+    display: ${props => props.display};
+    align-items: center;
 `
 
 export const SubContainer = styled.div`

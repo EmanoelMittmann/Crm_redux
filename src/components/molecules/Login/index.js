@@ -25,7 +25,6 @@ const Login = () => {
             localStorage.setItem('Login','true')
             navigate('/home')
           }
-
         })
     }
 
